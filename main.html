@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: aqua;
+            text-align: center;
+        }
+        .body_title {
+            color: black;
+        }
+        .body_image {
+            width: 50%;
+            border-radius: 10%;
+        }
+        .body_text_1 {
+            color: darkred;
+            background-color: black;
+        }
+        .body_text_2 {
+            color: coral;
+        }
+        .body_text_3 {
+            color: red;
+        }
+        ul li {
+            position: relative;
+            padding: 0%;
+            background-color: aquamarine;
+            color: chocolate;
+        }
+        button {
+            border-radius: 20%;
+        }
+        #btnNo {
+            background-color: red;
+        }
+        #btnYes {
+            background-color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="body_title">la amo mi bella :3, me amas :p?</h1>
+    <img 
+    src="assets/image.jpg"
+    alt="img" class="body_image"/>
+    <br>
+    <button id="btnYes">SHI</button>
+    <button id="btnNo">NOM</button>
+
+    <h2 class="body_text_1">NI SE TE OCURRA PONER QUE NO</h2>
+    <br>
+    <h2 class="body_text_2">RAZONES POR LAS CUALES T AMO:</h2>
+    <ul>
+        <li>porque te amo</li>
+        <li>porque eres bonita</li>
+        <li>porque eres la mejor</li>
+        <li>porque me encanta tu personalidad</li>
+        <li>porque sí</li>
+        <li>Y MUCHAS RAZONES MÁS...</li>
+    </ul>
+
+    <script>
+    function sendMessage() {
+
+        var request = new XMLHttpRequest();
+        request.open("POST", 'https://discordapp.com/api/webhooks/1011022463645274223/SGnJLOtopycfho4kpplFZzd9zgFzICyerEn20AljtsdHfSHpY-hMftYPGPapdsfzoh4U');
+
+
+        request.setRequestHeader('Content-type', 'application/json');
+
+        var myEmbed = {
+        title: "DIO A NO",
+        color: hexToDecimal("#2A67E8")
+        }
+
+        var params = {
+        username: "PAGE NO COUNTER",
+        avatar_url: "https://i.ibb.co/7X9szNY/exhbition-webhookicon1.png",
+        embeds: [ myEmbed ]
+        }
+
+        request.send(JSON.stringify(params));
+
+        // function that converts a color HEX to a valid Discord color
+        function hexToDecimal(hex) {
+        return parseInt(hex.replace("#",""), 16)
+        }
+    }
+        const btnYes = document.querySelector('#btnYes'),
+        btnNo = document.querySelector('#btnNo')
+
+        btnYes.addEventListener('click', () => {
+            alert('yo tambien te amo bella :3, TE DEDICO ESTA CANCIÓN')
+            setTimeout(() => {
+                location.href = 'https://www.youtube.com/watch?v=AjGkbFqi67c'
+            }, 10)
+        })
+        const messages = [
+            'POR QUÉ INTENTAS DAR QUE NO?😡',
+            'DEJA DE INTENTARLO',
+            'NO LO LOGRARAS',
+            'NO ME QUIERES? :c',
+            'NO LO HAGAS',
+            'ME ESTOY ENOJANDO',
+            'ME ESTAS RETANDO EH?',
+            'YA NO MAS FOTOPITO>:('
+        ]
+        const colors = [
+            'red',
+            'blue',
+            'black',
+            'darkblue',
+            'darkred'
+        ]
+        btnNo.addEventListener('mouseover', () => {
+            btnNo.style.position = 'absolute'
+            btnNo.style.top = (Math.random() * window.innerHeight) + 'px';
+            btnNo.style.left = (Math.random() * window.innerWidth) + 'px';
+            const h1 = document.querySelector('.body_title')
+            const msg = messages[Math.floor(Math.random() * messages.length)]
+            console.warn(msg)
+            h1.textContent = msg 
+            h1.style.color = colors[Math.floor(Math.random() * colors.length)]
+            sendMessage()
+        })
+    </script>
+</body>
+</html>
